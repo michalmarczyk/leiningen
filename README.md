@@ -87,6 +87,15 @@ Other keys accepted:
 * :source-path, :compile-path, :library-path, :test-path, :resources-path -
   alternate paths for src/, classes/, lib/, resources/, and test/ directories.
 * :jvm-opts - a list of arguments to pass to the project-level JVM
+* :url - the url of the project's Web site
+* :mailing-list, :mailing-lists - a map or list of maps detailing information
+  on the project's mailing list(s). :name, :archive, :other-archives, :post,
+  :subscribe and :unsubscribe keys are supported.
+* :licence, :license, :licences, :licenses -
+  a map or list of maps describing licenses attached to this project;
+  supported keys are :name, :url, :distribution, and :comments, where
+  :distribution should be :repo or :manual, depending on whether the
+  project's artifacts may be hosted by public Maven repositories.
 
 TODO: spin this list off into its own file and explain each option better
 
