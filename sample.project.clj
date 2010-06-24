@@ -15,7 +15,9 @@
                  [log4j "1.2.15" :exclusions [javax.mail/mail
                                               javax.jms/jms
                                               com.sun.jdmk/jmxtools
-                                              com.sun.jmx/jmxri]]]
+                                              com.sun.jmx/jmxri]]
+                 [org.seleniumhq.selenium.server/selenium-server "1.2.3"
+                  :classifier "standalone"]]
   ;; Before fetching dependencies, the contents of the lib/ directory
   ;; will get deleted unless this is set to true.
   :disable-implicit-clean false
