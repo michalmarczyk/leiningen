@@ -75,9 +75,8 @@
     (.setGroupId (or (namespace excl) (name excl)))
     (.setArtifactId (name excl))))
 
-(defn make-dependency [[dep version & exclusions]]
-  (let [es (map make-exclusion (when (= (first exclusions) :exclusions)
-                                 (second exclusions)))]
+(defn make-dependency [[dep version & {:keys [exclusions classifier]}]]
+  (let [es (map make-exclusion exclusions)]
     (doto (Dependency.)
       ;; Allow org.clojure group to be omitted from clojure/contrib deps.
       (.setGroupId (if (and (nil? (namespace dep))
@@ -86,7 +85,8 @@
                      (or (namespace dep) (name dep))))
       (.setArtifactId (name dep))
       (.setVersion version)
-      (.setExclusions es))))
+      (.setExclusions es)
+      (.setClassifier classifier))))
 
 (defn make-repository [[id url]]
   (doto (Repository.)
